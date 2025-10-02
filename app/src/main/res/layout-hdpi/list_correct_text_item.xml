@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="130dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="12dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingBottom="5dp"
+    android:layout_marginBottom="5dp"
+    android:id="@+id/content_layout"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@drawable/correct_order_bg">
+
+    <com.fortyk.studentapp.customfonts.customtextview.KgCornerTextView
+        android:id="@+id/tx_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:minWidth="75dp"
+        android:lines="2"
+        android:textColor="@color/darkergreen"
+        android:textSize="16sp" />
+</LinearLayout>

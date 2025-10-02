@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">40K Student App</string>
+    <string name="cambodia">Cambodia</string>
+    <string name="europe">Europe</string>
+    <string name="north_america">North America</string>
+    <string name="south_america">South America</string>
+    <string name="africa">Africa</string>
+    <string name="australia">Australia</string>
+    <string name="kampong_cham">Kampong Cham</string>
+    <string name="phnom_penh">Phnom Penh</string>
+    <string name="kampong_thom">Kampong Thom</string>
+    <string name="battambang">Battambang</string>
+    <string name="angkor_wat">Angkor Wat</string>
+    <string name="preah_vihear">Preah Vihear</string>
+    <string name="quit_message">Do you want to exit the Practice?</string>
+    <string name="quit">Quit</string>
+    <string name="login">LOGIN</string>
+
+    <string name="internet_message">"No internet connection. Would you like to enable it?"</string>
+    <string name="rpi_message">"You are not connected to RPi. Would you like to connect to RPi?"</string>
+    <string name="select_school">SELECT SCHOOL</string>
+
+
+    <string-array name="curriculum">
+        <item>SELECT CURRICULUM</item>
+        <item>Cambodia</item>
+
+    </string-array>
+    <string-array name="gse_curriculum">
+        <item>SELECT CURRICULUM</item>
+        <item>GSE</item>
+
+    </string-array>
+    <string-array name="school">
+        <item>SELECT SCHOOL</item>
+    </string-array>
+
+    <string-array name="grades">
+        <item>SELECT GRADE</item>
+        <item>Grade-1</item>
+        <item>Grade-2</item>
+        <item>Grade-3</item>
+        <item>Grade-4</item>
+        <item>Grade-5</item>
+        <item>Grade-6</item>
+        <item>Grade-7</item>
+        <item>Grade-8</item>
+        <item>Grade-9</item>
+        <item>Grade-10</item>
+    </string-array>
+
+    <string-array name="country">
+        <item>SELECT COUNTRY</item>
+    </string-array>
+
+    <string-array name="city">
+        <item>SELECT CITY</item>
+    </string-array>
+
+    <string-array name="state">
+        <item>SELECT STATE</item>
+    </string-array>
+
+
+</resources>

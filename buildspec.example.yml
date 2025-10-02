@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      # Replace API URLs with environment variables
+      - sed '31 c\ public static String baseUrlString = "'${RPIURL}'";' ./app/src/main/java/com/fortyk/studentapp/api/ApiClient.java > ./app/src/main/java/com/fortyk/studentapp/api/temp.java
+      - cat ./app/src/main/java/com/fortyk/studentapp/api/temp.java > ./app/src/main/java/com/fortyk/studentapp/api/ApiClient.java
+      - rm -rf ./app/src/main/java/com/fortyk/studentapp/api/temp.java
+      - sed '32 c\ public static String uploadbaseUrl = "'${LMSURL}'";' ./app/src/main/java/com/fortyk/studentapp/api/ApiClient.java > ./app/src/main/java/com/fortyk/studentapp/api/temp.java
+      - cat ./app/src/main/java/com/fortyk/studentapp/api/temp.java > ./app/src/main/java/com/fortyk/studentapp/api/ApiClient.java
+      - rm -rf ./app/src/main/java/com/fortyk/studentapp/api/temp.java
+      - cat ./app/src/main/java/com/fortyk/studentapp/api/ApiClient.java
+      - chmod +x gradlew
+      - yes | $ANDROID_HOME/tools/bin/sdkmanager --update
+      - ./gradlew assemble$buildtype
+      - ./gradlew bundle$buildtype
+artifacts:
+  files:
+    - ./app/build/outputs/apk/$buildpath/app-$buildpath.apk
+    - ./app/build/outputs/bundle/$buildpath/app-$buildpath.aab
