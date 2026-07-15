@@ -2,6 +2,10 @@
 
 An Android application for educational technology, designed to work in both online and offline modes.
 
+## In the full system
+
+Legacy **native Android** client. The newer cross-platform app is [**edtech-expo**](../edtech-expo). Both talk to a **central LMS API** and/or a **Pi API** depending on build and network; Android uses multiple URL fields in `ApiClient.java` (see below and [**ARCHITECTURE.md**](../ARCHITECTURE.md)). User-facing guide (Word export): [**docs/Andriod App Documentation_Tech Doc.docx.md**](../docs/Andriod%20App%20Documentation_Tech%20Doc.docx.md).
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -13,11 +17,7 @@ An Android application for educational technology, designed to work in both onli
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd edtech-android
-   ```
+1. **Get the code** — clone or copy this repo (see [**ARCHITECTURE.md**](../ARCHITECTURE.md)).
 
 2. **Configure Local Properties**
    
@@ -178,15 +178,17 @@ edtech-android/
 
 ## 🔧 Configuration
 
-### API Configuration
+### API configuration (Pi vs central)
 
-The app uses three main API endpoints configured in `ApiClient.java`:
+The app uses **three base URLs** in `ApiClient.java`. Map them to your deployment (often **`baseUrlString` → Pi** in the classroom, **`uploadbaseUrl` → central LMS** for sync/school flows, **`fileserverbaseUrl` → CDN/S3** for media):
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `baseUrlString` | Main API server URL | `https://your-api-server.com/` |
-| `uploadbaseUrl` | LMS server URL | `https://your-lms-server.com/` |
-| `fileserverbaseUrl` | File server URL | `https://your-file-server.com/` |
+| Variable | Typical role | Example |
+|----------|----------------|---------|
+| `baseUrlString` | Primary API (often **Pi** when offline) | `http://192.168.0.10:3000/` |
+| `uploadbaseUrl` | Central LMS / upload targets | `https://your-lms-api.example.com/` |
+| `fileserverbaseUrl` | Static / media host | `https://your-cdn.example.com/` |
+
+`LoginActivity` chooses `auth/login` vs `auth/school/login` depending on online/offline and whether the app sees the Pi — see the Android tech doc in [**docs/**](../docs/README.md).
 
 ### Firebase Configuration
 
@@ -239,11 +241,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 Support
 
-If you encounter any issues or have questions, please:
-
-1. Check the [Issues](../../issues) page for existing solutions
-2. Create a new issue with detailed information about your problem
-3. Include your environment details and steps to reproduce the issue
+If you encounter any issues or have questions, use your team’s issue tracker or internal docs.
 
 ## 🔄 Updates
 
